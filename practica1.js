@@ -24,14 +24,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     //Validaciones de los input
     document.querySelector('#tx_pwd1').addEventListener("input",(evt)=>{
-        //validar contraseña valida con checkvalidity
-
-
+        let pwd= document.querySelector("#tx_pwd1").textContent;
+        //validar contraseña valida con pattern
+        if (!patrones(pwd)){
+            alert("Contraseña no válida")
+            evt.preventDefault();
+        }
+        
 
     });
     document.querySelector('#tx_pwd2').addEventListener("input",(evt)=>{
-        //validar contraseña valida con checkvalidity
-
+        //validar contraseña valida con pattern
+        let pwd= document.querySelector("#tx_pwd2").textContent;
+        if (!patrones(pwd)){
+           alert("Contraseña no válida");
+           evt.preventDefault();
+            
+        }
+        
         
 
     });
@@ -41,8 +51,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         let ok=validarFormulario();
         if (ok==false){
             evt.preventDefault();
-        }
-        
+        }    
     });
 
 
@@ -53,16 +62,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
 function okFormulario(){
     let ok=true;
 
-    //Valida campo email.
-    document.querySelector("#tx_pdw1").textContent;
-
+    //Valida campo email con checkvalidity
+    let email= document.querySelector("#tx_email").textContent;
+            if (!email.checkValidity()) {
+                document.querySelector("#err_email").setAttribute("hidden", "" );
+                document.querySelector("#err_email").textContent="El email no es válido";
+                ok=false;
+            
     //valida que las contraseñas sean iguales
     let pwd1= document.querySelector("#tx_pdw1").textContent;
     let pwd2= document.querySelector("#tx_pdw2").textContent;
         if (pwd1!=pwd2){ 
             document.querySelector("#err_pdw").setAttribute("hidden", "" );
+            document.querySelector("#err_email").textContent="Las contraseñas no coinciden";
             ok=false;
         }
+
+    return ok;
+}
+}
+
+function patrones(pass){
+    ok=false;
 
     return ok;
 }
