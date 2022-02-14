@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="practica1.js" defer=""></script>
+    <title>Práctica 1</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Validaciones con javascript</legend>
+            <label name="nombre">Escribe tu nombre completo:</label>
+            <input type="text" name="tx_nombre">
+            <span class="error" name="err_nombre" hidden="hidden"></span><br />
+            <label name="email">email:</label> 
+            <input type="text" name="tx_email">
+            <span class="error" name="err_mail" hidden="hidden"></span><br />
+            <label name="pwd1">Contraseña</label> 
+            <input type="password" name="tx_pwd1">
+            <label name="pwd2">Contraseña</label> 
+            <input type="password" name="tx_pwd2">
+        <input type="button" name="validar" value="validar">
+        </fieldset>
+    </form>
+    
+</body>
+</html>
