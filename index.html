@@ -10,17 +10,17 @@
 <body>
     <form>
         <fieldset>
-            <legend>Validaciones con javascript</legend>
-            <label name="nombre">Escribe tu nombre completo:</label>
-            <input type="text" name="tx_nombre">
-            <span class="error" name="err_nombre" hidden="hidden"></span><br />
+            <legend>Practica dwec1</legend>
+            <br /><label name="nombre">Escribe tu nombre completo:</label>
+            <input type="text" id="tx_nombre"><br />
             <label name="email">email:</label> 
-            <input type="text" name="tx_email">
-            <span class="error" name="err_mail" hidden="hidden"></span><br />
+            <input type="text" id="tx_email">
+            <span class="error" id="err_mail" hidden="hidden">Email no válido</span><br />
             <label name="pwd1">Contraseña</label> 
-            <input type="password" name="tx_pwd1">
-            <label name="pwd2">Contraseña</label> 
-            <input type="password" name="tx_pwd2">
+            <input type="password" id="tx_pwd1"><br />
+            <label name="pwd2">Repite la contraseña</label> 
+            <input type="password" id="tx_pwd2">
+            <span class="error" id="err_pdw" hidden="hidden"></span><br /><br />
         <input type="button" name="validar" value="validar">
         </fieldset>
     </form>
