@@ -29,9 +29,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (!patrones(pwd)){
             alert("Contraseña no válida")
             evt.preventDefault();
-        }
-        
-
+        }   
     });
     document.querySelector('#tx_pwd2').addEventListener("input",(evt)=>{
         //validar contraseña valida con pattern
@@ -41,40 +39,35 @@ document.addEventListener("DOMContentLoaded", function (event) {
            evt.preventDefault();
             
         }
-        
-        
-
     });
 
     //Validaciones en el click del boton
-    document.document.querySelector('button').addEventListener('click', (evt) => {
-        let ok=validarFormulario();
-        if (ok==false){
+    document.querySelector("button").addEventListener('click', (evt) => {
+        
+        if (!okFormulario()){
             evt.preventDefault();
         }    
     });
-
-
-
-
 });
 
 function okFormulario(){
     let ok=true;
 
     //Valida campo email con checkvalidity
-    let email= document.querySelector("#tx_email").textContent;
+    let email= document.querySelector("#tx_email");
             if (!email.checkValidity()) {
-                document.querySelector("#err_email").setAttribute("hidden", "" );
-                document.querySelector("#err_email").textContent="El email no es válido";
+                alert("Email no válido");
+               // document.querySelector("#err_email").setAttribute("hidden", "" );
+                //document.querySelector("#err_email").textContent="El email no es válido";
                 ok=false;
             
     //valida que las contraseñas sean iguales
     let pwd1= document.querySelector("#tx_pdw1").textContent;
     let pwd2= document.querySelector("#tx_pdw2").textContent;
         if (pwd1!=pwd2){ 
-            document.querySelector("#err_pdw").setAttribute("hidden", "" );
-            document.querySelector("#err_email").textContent="Las contraseñas no coinciden";
+            alert("Las contraseñas no coinciden");
+            //document.querySelector("#err_pdw").setAttribute("hidden", "" );
+            //document.querySelector("#err_email").textContent="Las contraseñas no coinciden";
             ok=false;
         }
 
@@ -83,7 +76,32 @@ function okFormulario(){
 }
 
 function patrones(pass){
-    ok=false;
 
-    return ok;
+    ok=true;
+    const letramay = new RegExp("(?=.*?[A-Z])");
+    const letramin = new RegExp("(?=.*?[a-z])");
+    const digito = new RegExp("(?=.*?[0-9])");
+    const especial = new RegExp("(?=.*?[=#?!@$%^&*-])");
+    const longitud = new RegExp(".{8,}");
+    let expresiones = [letramay, letramin, digito, especial, longitud];
+    
+
+        
+        if (!letramay.test(pass)) {
+            ok = false;
+        }
+        if (!letramin.test(pass)) {
+            ok = false;
+        }
+        if (!digito.test(pass)) {
+            ok = false;
+        }
+        if (!especial.test(pass)) {
+            ok = false;
+        }
+        if (!longitud.test(pass)) {
+            ok = false;
+        }
+   
+
 }
